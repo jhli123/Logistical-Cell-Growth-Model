@@ -6,7 +6,7 @@ A basic Python simulation that models bacterial cell growth over time. It uses E
 Unlike basic exponential growth, this model includes a carrying capacity ($K$) to simulate real-world environmental limits like restricted space and nutrients. 
 
 The equation used is:
-$$\frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right)$$
+dP/dt = r * P * (1 - P / K)
 
 * **P**: Cell population
 * **r**: Growth rate constant
@@ -19,9 +19,7 @@ As the population approaches $K$, growth slows down until it flattens out into a
 I solved the equation step-by-step using **Euler's method** inside a standard loop:
 
 ```python
-# Calculate growth rate using the logistic differential equation
+# Updating population for each time step
 dP_dt = r * P * (1 - (P / K))
-
-# Update population for the next small time step
 P += dP_dt * dt
 current_time += dt
